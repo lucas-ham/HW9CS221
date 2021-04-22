@@ -63,7 +63,7 @@ std::ostream
 &operator<< (std::ostream& output, Cities& cities) { 
 	// std::string outputstring;
      for (Cities::coord_t coords : cities.cities_list_){
-     	output << " x: " << coords.first << " y: " << coords.second << std::endl;
+     	output << coords.first << "	" << coords.second << std::endl;
      }
      return output;            
 }

@@ -24,8 +24,10 @@ int main(int argc, char **argv){
 	std::string filename;
 	filename = argv[1]; //initialize and set filename to the name of the infile
 	std::ifstream Infile(filename);
+	std::ofstream Outfile("shortest.tsv");
 	Cities cities;
 	Infile>>cities;
+
 
 	double shortest = -1;
 	for (unsigned j = 0; j < 1000000; j++){
@@ -37,6 +39,6 @@ int main(int argc, char **argv){
 			cities = cities.reorder(perm);	
 		}
 	}
-
+	Outfile << cities;
 	return 1;
 }
