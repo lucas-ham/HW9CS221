@@ -7,8 +7,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
-#include <algorithm>    // std::random_shuffle
-#include <vector>       // std::vector
+#include <vector>       
 #include <random>
 #include "cities.hh"
 

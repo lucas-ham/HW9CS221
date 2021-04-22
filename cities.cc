@@ -1,8 +1,3 @@
-#include <iostream>
-#include <fstream>
-#include <algorithm>    // std::random_shuffle
-#include <vector>       // std::vector
-#include <random>
 #include "cities.hh"
 
 //Constructor for Cities
