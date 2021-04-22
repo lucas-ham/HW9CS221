@@ -2,7 +2,6 @@
 #include <fstream>
 #include "cities.hh"
 
-//test push
 
 //find the distance between two coord_t objects
 unsigned distance_between_coords(Cities::coord_t city_one,Cities::coord_t city_two){
