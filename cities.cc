@@ -18,7 +18,7 @@ double distance_between_coords(Cities::coord_t city_one,Cities::coord_t city_two
 }
 
 //Find the total path distance
-double 
+double
 Cities::total_path_distance(const Cities::permutation_t& ordering) const{
 	double distance = 0;
 	for (unsigned i = 0; i < cities_list_.size() - 1; i++){ //iterate through permutation vector, stopping at 2nd to last element
@@ -43,44 +43,39 @@ Cities::reorder(const Cities::permutation_t& ordering) const{
 	return new_cities_object;
 }
 //overload >> operator
-std::istream 
+std::istream
 &operator>> (std::istream& input, Cities& cities) {
  	while (!input.eof()){
 	 	Cities::coord_t newcoord;
 		input >> newcoord.first >> newcoord.second;
 		cities.cities_list_.push_back(newcoord);
 	}
-	return input;            
+	cities.cities_list_.pop_back(); //remove extra last city
+	return input;
 }
 
 // overload << operator
-std::ostream 
-&operator<< (std::ostream& output, Cities& cities) { 
+std::ostream
+&operator<< (std::ostream& output, Cities& cities) {
 	// std::string outputstring;
      for (Cities::coord_t coords : cities.cities_list_){
      	output << coords.first << "	" << coords.second << std::endl;
      }
-     return output;            
+     return output;
 }
 
 //Generate a random permutation from 0 to n-1
-Cities::permutation_t 
+Cities::permutation_t
 Cities::random_permutation(unsigned len){
-
-////////////////////////////// Found these lines on stackoverflow, no idea how it works
-	std::random_device rd;
-	std::mt19937 g(rd());
-///////////////////////////////
-
+	std::random_device rd;				// this returns an object that will be passed as a seed to g
+	std::mt19937 g(rd());					// returns g which, using rd to generate a seed value, computes a random number using a mersenne twister
 
 
 	std::vector<unsigned> to_shuffle;
-	for (unsigned i=0; i < len; ++i){ 
+	for (unsigned i=0; i < len; ++i){
 		to_shuffle.push_back(i); //create a vector, not shuffled
 	}
 	// using built-in random generator:
-	std::shuffle(to_shuffle.begin(), to_shuffle.end(), g);
+	std::shuffle(to_shuffle.begin(), to_shuffle.end(), g); //shuffle uses this random generator to choose indices at which to swap elements in the vector
 	return to_shuffle;
 }
-
-

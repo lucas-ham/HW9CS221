@@ -7,7 +7,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
-#include <vector>       
+#include <vector>
 #include <random>
 #include "cities.hh"
 
@@ -29,10 +29,15 @@ class Cities {
   // the first two elements (coordinates) in the new Cities object.
   Cities reorder(const permutation_t& ordering) const;
 
+  //generate a random permutation of nums from 0 - n-1
+  permutation_t random_permutation(unsigned len);
+
+// private:
+
   // For a given permutation of the cities in this object,
   // compute how long (distance) it would take to traverse all the cities in the
   // order of the permutation, and then returning to the first city.
-  // The distance between any two cities is computed as the Euclidean 
+  // The distance between any two cities is computed as the Euclidean
   // distance on a plane between their coordinates.
   double total_path_distance(const permutation_t& ordering) const;
   //overload >> operator
@@ -43,13 +48,6 @@ class Cities {
   Cities();
   //parameterized constructor of cities
   Cities(std::vector<coord_t> citiesvector);
-  //generate a random permutation of nums from 0 - n-1
-  permutation_t random_permutation(unsigned len);
- // private:
+
   std::vector<coord_t> cities_list_; //the current list of cities in this Cities object
 };
-
-
-
-
-
