@@ -29,4 +29,10 @@ class Cities {
   // The distance between any two cities is computed as the Euclidean 
   // distance on a plane between their coordinates.
   double total_path_distance(const permutation_t& ordering) const;
+  //overload << operator
+  friend std::istream &operator>> (std::istream& input, Cities& cities);
+  //overload << operator
+  friend std::ostream &operator<< (std::ostream& output, Cities& cities);       
 };
+
+
