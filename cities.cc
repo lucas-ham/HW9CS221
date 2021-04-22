@@ -16,6 +16,10 @@ Cities::total_path_distance(const Cities::permutation_t& ordering) const{
 		unsigned nextstep = distance_between_coords(cities_list[i],cities_list[i+1]);
 		distance += nextstep;
 	}
+	//add the distance from the last city to the first city in the permutation
+	coord_t first_city = cities_list[ordering[0]];
+	coord_t last_city = cities_list[ordering[ordering.size() - 1]];
+	distance += distance_between_coords(first_city,last_city);
 	return distance;
 }
 //overload >> operator
