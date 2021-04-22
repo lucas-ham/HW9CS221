@@ -15,7 +15,7 @@ cities: tsp.o cities.o
 	$(CXX) $(CXXFLAGS) $(OPTFLAGS) -c -o $@ $<
 
 clean:
-	rm -rf *.o 
+	rm -rf *.o tsp cities
 
 test: all
 	./tsp
