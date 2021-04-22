@@ -5,6 +5,12 @@
 #pragma once
 
 #include <vector>
+#include <iostream>
+#include <fstream>
+#include <algorithm>    // std::random_shuffle
+#include <vector>       // std::vector
+#include <random>
+#include "cities.hh"
 
 
 // Representation of an ordering of cities
@@ -40,8 +46,8 @@ class Cities {
   Cities(std::vector<coord_t> citiesvector);
   //generate a random permutation of nums from 0 - n-1
   permutation_t random_permutation(unsigned len);
- private:
-    std::vector<coord_t> cities_list_; //the current list of cities in this Cities object
+ // private:
+  std::vector<coord_t> cities_list_; //the current list of cities in this Cities object
 };
 
 

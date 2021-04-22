@@ -89,24 +89,3 @@ Cities::random_permutation(unsigned len){
 }
 
 
-int main(){
-	//Eitan provided this test code
-	auto fin = std::ifstream("five.tsv");
-	Cities cities;
-	fin >> cities;
-	Cities::permutation_t perm = cities.random_permutation(10);
-	for (unsigned i : perm){
-		std::cout<<i<<" ";
-	}
-	std::cout << cities << "\n"; // added to check if getting the right output
-	std::cout << cities.total_path_distance({ 0, 1, 2, 3, 4 }) << "\n"; // Should be 48.8699
-	std::cout << cities.total_path_distance({ 3, 2, 4, 0, 1 }) << "\n"; // Should be 53.42.43
-
-	// auto fin = std::ifstream("linear.tsv");
-	// Cities cities;
-	// fin >> cities;
-	// std::cout << cities << "\n";
-	// std::cout << cities.total_path_distance({ 0, 1, 2}) << "\n"; // Should be 48.8699
-	// std::cout << cities.total_path_distance({ 1, 2, 0}) << "\n"; // Should be 53.42.43
-	return 1;
-}
