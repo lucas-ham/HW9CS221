@@ -38,6 +38,8 @@ class Cities {
   Cities();
   //parameterized constructor of cities
   Cities(std::vector<coord_t> citiesvector);
+  //generate a random permutation of nums from 0 - n-1
+  permutation_t random_permutation(unsigned len);
  private:
     std::vector<coord_t> cities_list_; //the current list of cities in this Cities object
 };

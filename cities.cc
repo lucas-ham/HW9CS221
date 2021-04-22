@@ -1,5 +1,8 @@
 #include <iostream>
 #include <fstream>
+#include <algorithm>    // std::random_shuffle
+#include <vector>       // std::vector
+#include <random>
 #include "cities.hh"
 
 //Constructor for Cities
@@ -65,6 +68,25 @@ std::ostream
      return output;            
 }
 
+//Generate a random permutation from 0 to n-1
+Cities::permutation_t 
+Cities::random_permutation(unsigned len){
+
+////////////////////////////// Found these lines on stackoverflow, no idea how it works
+	std::random_device rd;
+	std::mt19937 g(rd());
+///////////////////////////////
+
+
+
+	std::vector<unsigned> to_shuffle;
+	for (unsigned i=0; i < len; ++i){ 
+		to_shuffle.push_back(i); //create a vector, not shuffled
+	}
+	// using built-in random generator:
+	std::shuffle(to_shuffle.begin(), to_shuffle.end(), g);
+	return to_shuffle;
+}
 
 
 int main(){
@@ -72,7 +94,11 @@ int main(){
 	auto fin = std::ifstream("five.tsv");
 	Cities cities;
 	fin >> cities;
-	std::cout << cities << "\n";
+	Cities::permutation_t perm = cities.random_permutation(10);
+	for (unsigned i : perm){
+		std::cout<<i<<" ";
+	}
+	std::cout << cities << "\n"; // added to check if getting the right output
 	std::cout << cities.total_path_distance({ 0, 1, 2, 3, 4 }) << "\n"; // Should be 48.8699
 	std::cout << cities.total_path_distance({ 3, 2, 4, 0, 1 }) << "\n"; // Should be 53.42.43
 
