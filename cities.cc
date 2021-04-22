@@ -25,7 +25,10 @@ Cities::total_path_distance(const Cities::permutation_t& ordering) const{
 // }
 //overload << operator
 std::ostream &operator<< (std::ostream& output, Cities& cities) { 
-     output << *cities;
+	// std::string outputstring;
+     for (Cities::coord_t coords : cities.cities_list){
+     	output << coords.first << coords.second;
+     }
      return output;            
 }
 
