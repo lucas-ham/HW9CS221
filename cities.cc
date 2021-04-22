@@ -2,6 +2,11 @@
 #include <fstream>
 #include "cities.hh"
 
+
+//Constructor for Cities that takes parameter for cities_list
+Cities::Cities(std::vector<coord_t> citiesvector){
+	cities_list_ = citiesvector;
+}
 //find the distance between two coord_t objects
 unsigned distance_between_coords(Cities::coord_t city_one,Cities::coord_t city_two){
 	int xdist = (city_one.first - city_two.first);

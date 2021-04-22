@@ -10,6 +10,7 @@
 // Representation of an ordering of cities
 class Cities {
  public:
+
   // A pair of integral coordinates for each city
   using coord_t = std::pair<int, int>;
 
@@ -33,7 +34,8 @@ class Cities {
   friend std::istream &operator>> (std::istream& input, Cities& cities);
   //overload << operator
   friend std::ostream &operator<< (std::ostream& output, Cities& cities);
-
+  //parameeterized constructor of cities
+  Cities(std::vector<coord_t> citiesvector);
  private:
     std::vector<coord_t> cities_list_; //the current list of cities in this Cities object
 };
