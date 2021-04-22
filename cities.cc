@@ -18,12 +18,14 @@ Cities::total_path_distance(const Cities::permutation_t& ordering) const{
 	}
 	return distance;
 }
-
-// std::istream &operator>> (std::istream& input, Cities& cities) { 
-// 	input >>;
-// 	return input;            
-// }
-//overload << operator
+//overload >> operator
+std::istream &operator>> (std::istream& input, Cities& cities) {
+ 	Cities::coord_t newcoord;
+	input >> newcoord.first >> newcoord.second;
+	cities.cities_list.push_back(newcoord);
+	return input;            
+}
+// overload << operator
 std::ostream &operator<< (std::ostream& output, Cities& cities) { 
 	// std::string outputstring;
      for (Cities::coord_t coords : cities.cities_list){
