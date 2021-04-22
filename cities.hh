@@ -35,7 +35,7 @@ class Cities {
   friend std::ostream &operator<< (std::ostream& output, Cities& cities);
 
  private:
-    std::vector<coord_t> cities_list; //the current list of cities in this Cities object
+    std::vector<coord_t> cities_list_; //the current list of cities in this Cities object
 };
 
 
