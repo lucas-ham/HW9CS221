@@ -1,9 +1,4 @@
 #include "cities.hh"
-// #include <iostream>
-// #include <fstream>
-// #include <vector>       // std::vector
-// // #include <random>
-// #include "cities.hh"
 
 int main(int argc, char **argv){
 	
