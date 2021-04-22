@@ -41,7 +41,5 @@ std::ostream &operator<< (std::ostream& output, Cities& cities) {
 
 
 int main(){
-	Cities city = Cities();
-	std::cout<<city;
 	return 1;
 }
