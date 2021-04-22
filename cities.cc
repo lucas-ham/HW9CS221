@@ -14,26 +14,35 @@ double
 Cities::total_path_distance(const Cities::permutation_t& ordering) const{
 	unsigned distance = 0;
 	for (unsigned i = 0; i < ordering.size() - 2; i++){ //iterate through permutation vector, stopping at 2nd to last element
-		unsigned nextstep = distance_between_coords(cities_list[i],cities_list[i+1]);
+		unsigned nextstep = distance_between_coords(cities_list_[i],cities_list_[i+1]);
 		distance += nextstep;
 	}
 	//add the distance from the last city to the first city in the permutation
-	coord_t first_city = cities_list[ordering[0]];
-	coord_t last_city = cities_list[ordering[ordering.size() - 1]];
+	coord_t first_city = cities_list_[ordering[0]];
+	coord_t last_city = cities_list_[ordering[ordering.size() - 1]];
 	distance += distance_between_coords(first_city,last_city);
 	return distance;
 }
+
+//Return a Cities object where the order is given by ordering
+Cities
+reorder(const permutation_t& ordering) const{
+	Cities newcities;
+
+}
+
+
 //overload >> operator
 std::istream &operator>> (std::istream& input, Cities& cities) {
  	Cities::coord_t newcoord;
 	input >> newcoord.first >> newcoord.second;
-	cities.cities_list.push_back(newcoord);
+	cities.cities_list_.push_back(newcoord);
 	return input;            
 }
 // overload << operator
 std::ostream &operator<< (std::ostream& output, Cities& cities) { 
 	// std::string outputstring;
-     for (Cities::coord_t coords : cities.cities_list){
+     for (Cities::coord_t coords : cities.cities_list_){
      	output << coords.first << coords.second;
      }
      return output;            

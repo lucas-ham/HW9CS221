@@ -10,6 +10,9 @@
 // Representation of an ordering of cities
 class Cities {
  public:
+  Cities(std::vector<coord_t> cityvector){
+
+  }
   // A pair of integral coordinates for each city
   using coord_t = std::pair<int, int>;
 
@@ -35,7 +38,7 @@ class Cities {
   friend std::ostream &operator<< (std::ostream& output, Cities& cities);
 
  private:
-    std::vector<coord_t> cities_list; //the current list of cities in this Cities object
+    std::vector<coord_t> cities_list_; //the current list of cities in this Cities object
 };
 
 
